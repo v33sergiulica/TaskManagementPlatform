@@ -1,0 +1,15 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "OpenAI": {
+    "ApiKey": "YOUR_OPENAI_API_KEY_HERE"
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost,1433;Database=TaskManagementDB;User Id=sa;Password=YourStrong!Password123;TrustServerCertificate=True;MultipleActiveResultSets=true"
+  }
+}

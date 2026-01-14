@@ -1,0 +1,85 @@
+@model TaskManagementPlatform.Models.Task
+
+@{
+    ViewData["Title"] = "Task Details";
+    var currentUser = User.Identity.Name;
+    var isAssignedToMe = Model.AssignedTo != null && Model.AssignedTo.UserName == currentUser;
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>@Model.Title</h1>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit Task</a>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Description</h5>
+                    <p class="card-text">@Model.Description</p>
+                    <hr />
+                    <div class="d-flex justify-content-between">
+                        <div>
+                             <strong>Status:</strong> 
+                             <span class="badge @(Model.Status == TaskManagementPlatform.Models.TaskStatus.Completed ? "bg-success" : Model.Status == TaskManagementPlatform.Models.TaskStatus.InProgress ? "bg-warning" : "bg-secondary")">@Model.Status</span>
+                        </div>
+                        <div>
+                            <strong>Due Date:</strong> @Model.EndDate.ToShortDateString()
+                        </div>
+                        <div>
+                            <strong>Assigned To:</strong> @(Model.AssignedTo?.UserName ?? "Unassigned")
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Comments</h5>
+                    
+                    @if (Model.Comments.Count == 0)
+                    {
+                        <p class="text-muted">No comments yet. Start the discussion!</p>
+                    }
+                    else
+                    {
+                        @foreach (var comment in Model.Comments.OrderBy(c => c.CreatedDate))
+                        {
+                            <div class="card mb-2 border-0">
+                                <div class="card-body p-2">
+                                    <h6 class="card-subtitle mb-1 text-muted small">
+                                        <strong>@comment.User.UserName</strong> at @comment.CreatedDate.ToString("g")
+                                    </h6>
+                                    <p class="card-text">@comment.Content</p>
+                                </div>
+                            </div>
+                        }
+                    }
+
+                    <hr />
+                    
+                    <form asp-action="AddComment" method="post">
+                        <input type="hidden" name="taskId" value="@Model.Id" />
+                        <div class="form-group mb-2">
+                            <textarea name="content" class="form-control" rows="3" placeholder="Add a comment..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+             <div class="card">
+                 <div class="card-header">Project</div>
+                 <div class="card-body">
+                     <h5>@Model.Project.Title</h5>
+                     <a asp-controller="Project" asp-action="Details" asp-route-id="@Model.ProjectId" class="btn btn-outline-secondary w-100 mt-2">Back to Board</a>
+                 </div>
+             </div>
+        </div>
+    </div>
+</div>

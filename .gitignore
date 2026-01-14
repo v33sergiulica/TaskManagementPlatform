@@ -1,0 +1,11 @@
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.db
+*.pfx
+appsettings.json
+appsettings.Development.json
+TestResult.xml
+[Tt]emp/
