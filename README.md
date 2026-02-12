@@ -2,11 +2,11 @@
 
 Acesta este un proiect individual dezvoltat pentru a demonstra competențe avansate de dezvoltare web folosind ecosistemul **.NET**. Aplicația este o platformă completă pentru gestionarea proiectelor și a task-urilor, facilitând colaborarea și organizarea eficientă.
 
-## 🚀 Despre Proiect
+## Despre Proiect
 
 Proiectul a fost realizat pentru a pune în practică concepte moderne de Software Engineering și Web Development. Scopul principal a fost crearea unei aplicații robuste, scalabile și sigure, care integrează funcționalități complexe precum autentificarea utilizatorilor, gestionarea bazelor de date relaționale și integrarea cu servicii de inteligență artificială.
 
-## 💻 Tehnologii și Concepte Utilizate
+## Tehnologii și Concepte Utilizate
 
 În dezvoltarea acestui proiect am utilizat următorul stack tehnologic și concepte de programare:
 
@@ -29,7 +29,7 @@ Proiectul a fost realizat pentru a pune în practică concepte moderne de Softwa
 *   **Bootstrap 5**: Pentru un design responsive și modern.
 *   **JavaScript & jQuery**: Pentru validări client-side și interactivitate.
 
-## ✨ Funcționalități Cheie
+## Funcționalități Cheie
 
 1.  **Managementul Proiectelor**: Creare, editare, ștergere proiecte; vizualizare progres.
 2.  **Sistem de Task-uri**: Alocare task-uri, statusuri, deadline-uri, priorități.
@@ -38,7 +38,7 @@ Proiectul a fost realizat pentru a pune în practică concepte moderne de Softwa
 5.  **Comentarii & Colaborare**: Posibilitatea de a adăuga comentarii la task-uri.
 6.  **AI Assistant**: Funcționalități smart powered by OpenAI.
 
-## 🛠️ Cum se rulează proiectul
+## Cum se rulează proiectul
 
 ### Pre-requisites
 *   [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
